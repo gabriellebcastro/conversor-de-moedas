@@ -1,0 +1,23 @@
+.container {
+  position: relative;
+}
+
+.child {
+  margin-top: 18rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+img{
+  width: 260px;
+  height: 260px;
+  margin-left: 6rem;
+}
+
+p, h2 {
+  text-align: center;
+}
+
+
