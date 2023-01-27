@@ -3,19 +3,15 @@ import { Moeda } from '../models/moeda.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
+
 export class CurrencyListService {
 
-  private listaMoedas: Moeda [];
   private url = 'https://api.exchangerate.host/symbols';
 
-  constructor(private httpClient: HttpClient) {
-    this.listaMoedas = [];
-  }
-
-  get moedas(){
-    return this.listaMoedas;
-  }
+  constructor(private httpClient: HttpClient) {}
 
   todas(): Observable<Moeda[]>{
     return this.httpClient.get<Moeda[]>(this.url);

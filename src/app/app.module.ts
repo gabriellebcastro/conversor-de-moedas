@@ -6,17 +6,21 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuComponent } from './menu/menu.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { ListaComponent } from './lista/lista.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     MenuComponent,
-      HomepageComponent
+      HomepageComponent,
+      ListaComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
