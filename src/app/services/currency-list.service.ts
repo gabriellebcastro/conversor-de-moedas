@@ -9,11 +9,11 @@ import { Observable } from 'rxjs';
 
 export class CurrencyListService {
 
-  private url = 'https://api.exchangerate.host/symbols';
+  private readonly url = 'https://api.exchangerate.host/symbols';
 
   constructor(private httpClient: HttpClient) {}
 
-  todas(): Observable<Moeda[]>{
+  list(): Observable<Moeda[]>{
     return this.httpClient.get<Moeda[]>(this.url);
   }
 }
