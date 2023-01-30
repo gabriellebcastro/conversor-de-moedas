@@ -12,6 +12,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { ConversorComponent } from './conversor/conversor.component';
 
 @NgModule({
@@ -30,7 +31,8 @@ import { ConversorComponent } from './conversor/conversor.component';
     MatTableModule,
     MatToolbarModule,
     MatCardModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
