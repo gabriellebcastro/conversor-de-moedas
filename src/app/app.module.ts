@@ -9,20 +9,28 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { ListaComponent } from './lista/lista.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule} from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { ConversorComponent } from './conversor/conversor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
       HomepageComponent,
-      ListaComponent
+      ListaComponent,
+      ConversorComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
