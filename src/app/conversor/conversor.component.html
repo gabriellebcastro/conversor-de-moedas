@@ -1,4 +1,42 @@
-<p>conversor works!</p>
-<form>
+<div class="container">
+  <div class="child">
+    <div class="container pt-5">
+      <div class="row">
+        <div class="col-6">
+          <div class="card p-5">
+            <h3>Por favor, selecione a moeda para conversão.</h3>
+            <div class="panel-body">
+              <form class="w-100  mt-3">
+                <div>
+                  <div class="form-floating mb-3 ">
+                    <select id="moeda1InputLabel" title="Selecione a primeira moeda" name="moedaDe" class="form-control shadow-sm  mb-2 bg-light rounded ">
+                      <option value="valor1">Valor 1</option>
+                      <option value="valor2" selected>Valor 2</option>
+                      <option value="valor3">Valor 3</option>
+                    </select>
+                    <label for="moeda1InputLabel">Converter de: </label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <select id="moeda2InputLabel" title="Selecione a segunda moeda" name="moedaPara" class="form-control shadow-sm  mb-2 bg-light rounded">
+                      <option value="valor1">Valor 1</option>
+                      <option value="valor2" selected>Valor 2</option>
+                      <option value="valor3">Valor 3</option>
+                    </select>
+                    <label for="moeda2InputLabel">Para: </label>
+                  </div>
+                  <div class="form-floating mb-4">
+                    <input type="number" name="valor" class="form-control shadow-sm mb-2 bg-light rounded" id="valorInputLabel" title="Informe o valor a ser convertido" />
+                    <label for="valorInputLabel">Valor</label>
+                  </div>
 
-</form>
+                  <button type="submit" class="btn btn-success" title="Clique para ver o resultado da conversão" data-bs-toggle="modal" data-bs-target="#modalCotacao">
+                    <i class="bi bi-arrow-repeat" style="font-size: 15px; font-style: normal;"> Converter</i></button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
