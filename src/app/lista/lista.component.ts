@@ -24,7 +24,11 @@ export class ListaComponent {
     this.CurrencyListService.list().subscribe(dados => {
       this.moedas = new MatTableDataSource(Object.values(dados.symbols));
       this.moedas.paginator = this.paginator;
-      console.log(Object.values(dados.symbols));
+      this.moedas.sort = this.sort;
     })
+  }
+
+  filterData($event : any){
+    this.moedas.filter = $event.target.value;
   }
 }

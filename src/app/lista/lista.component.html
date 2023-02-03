@@ -1,24 +1,25 @@
 <div class="container-fluid d-flex justify-content-center">
   <div class="w-100 pt-3 m-2 container justify-content-center">
 
-    <mat-toolbar class="bg-white"><span>Lista de Símbolos</span></mat-toolbar>
-
-<!--   <mat-form-field>
-      <input matInput placeholder="Filtrar" autocomplete="off"/>
-    </mat-form-field>-->
-
     <mat-card>
-      <table mat-table [dataSource]="moedas" class="mat-elevation-z8">
+      <mat-toolbar class="bg-white"><span>Lista de Símbolos</span></mat-toolbar>
+
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="Filtrar" autocomplete="off" (keyup)="filterData($event)">
+        <mat-icon matSuffix>search_icon</mat-icon>
+      </mat-form-field>
+
+      <table mat-table matSort [dataSource]="moedas" class="mat-elevation-z8">
 
         <!-- Symbol Column -->
         <ng-container matColumnDef="symbols">
-          <th mat-header-cell *matHeaderCellDef> Símbolo </th>
+          <th mat-header-cell mat-sort-header *matHeaderCellDef> Símbolo </th>
           <td mat-cell *matCellDef="let element"> {{ element.code }} </td>
         </ng-container>
 
         <!-- Description Column -->
         <ng-container matColumnDef="description">
-          <th mat-header-cell *matHeaderCellDef> Descrição </th>
+          <th mat-header-cell mat-sort-header *matHeaderCellDef> Descrição </th>
           <td mat-cell *matCellDef="let element"> {{ element.description }} </td>
         </ng-container>
 
@@ -29,7 +30,8 @@
       </table>
 
       <mat-paginator #paginator
-      [pageSizeOptions]="[5, 10, 25, 100]"
+      [pageSize]="25"
+      [pageSizeOptions]="[10, 25, 50, 100]"
       showFirstLastButtons>
     </mat-paginator>
     </mat-card>
