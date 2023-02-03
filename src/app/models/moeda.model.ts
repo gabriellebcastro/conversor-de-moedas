@@ -1,5 +1,5 @@
 export interface Moeda {
-  symbol: string;
+  symbols: string;
   description: string;
   cod: string;
 }

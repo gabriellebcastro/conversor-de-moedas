@@ -13,7 +13,7 @@ export class CurrencyListService {
 
   constructor(private httpClient: HttpClient) {}
 
-  list(): Observable<Moeda[]>{
-    return this.httpClient.get<Moeda[]>(this.url);
+  list(): Observable<any>{
+    return this.httpClient.get<any>(this.url);
   }
 }
