@@ -41,12 +41,12 @@ export class ConversorComponent implements OnInit{
     });
   }
 
-/*  converter() {
+  converter() {
     this.currencyList
       .convert(this.moedaOrigem, this.moedaDestino, this.valor)
       .subscribe((data) => {
         this.resultado = data['result'];
         this.taxa = Object.values(data['info']);
       });
-  }*/
+  }
 }
