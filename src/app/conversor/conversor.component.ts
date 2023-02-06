@@ -1,8 +1,6 @@
-
 import { Component, OnInit, ViewChild, Injectable} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { CurrencyListService } from './../services/currency-list.service';
-import { MatTableDataSource } from '@angular/material/table';
 import { FormControl, FormGroup } from '@angular/forms';
 
 
@@ -11,8 +9,6 @@ import { FormControl, FormGroup } from '@angular/forms';
   templateUrl: './conversor.component.html',
   styleUrls: ['./conversor.component.css']
 })
-
-
 
 export class ConversorComponent implements OnInit{
   moedas: any[] = [];
@@ -33,7 +29,7 @@ export class ConversorComponent implements OnInit{
 
   ngOnInit(): void {
     this.currencyList.list().subscribe((data) => {
-      var resultado = Object.keys(data.symbols).map(function (moeda) {
+      var resultado = Object.keys(data.symbols).map(function(moeda) {
         let symbols = data.symbols[moeda];
         return symbols;
       });
@@ -41,12 +37,13 @@ export class ConversorComponent implements OnInit{
     });
   }
 
-  converter() {
-    this.currencyList
-      .convert(this.moedaOrigem, this.moedaDestino, this.valor)
-      .subscribe((data) => {
+ convert() {
+    this.currencyList.convert(this.moedaOrigem, this.moedaDestino, this.valor)
+      .subscribe((data:any) => {
         this.resultado = data['result'];
+        console.log(this.resultado);
         this.taxa = Object.values(data['info']);
+        console.log(this.taxa);
       });
   }
 }
