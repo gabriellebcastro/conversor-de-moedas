@@ -13,10 +13,12 @@ import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 import { ConversorComponent } from './conversor/conversor.component';
-import {MatInputModule} from '@angular/material/input';
-import {MatIconModule} from '@angular/material/icon'
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon'
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import {MatIconModule} from '@angular/material/icon'
     MatFormFieldModule,
     MatSortModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
