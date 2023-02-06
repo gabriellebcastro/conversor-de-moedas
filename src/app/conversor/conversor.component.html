@@ -1,38 +1,57 @@
-<mat-form-field class="w-100">
-  <mat-label>Moeda de origem</mat-label>
-  <mat-select [(value)]="moedaOrigem">
-    <mat-option *ngFor="let currency of moedas" [value]="currency.code">
-      {{currency.code}} - {{currency.description}}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
+<div class="container">
+  <div class="child">
+    <div class="container pt-5">
+      <div class="row">
+        <div class="col-6">
+          <div class="card p-5">
+            <div class="panel-body">
 
-<mat-form-field class="w-100">
-  <mat-label>Moeda de destino</mat-label>
-  <mat-select [(value)]="moedaDestino">
-    <mat-option *ngFor="let currency of moedas" [value]="currency.code">
-      {{currency.code}} - {{currency.description}}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
+              <mat-form-field class="w-100">
 
-<mat-form-field class="w-100">
-  <mat-label>Valor a ser convertido</mat-label>
-  <input matInput [(ngModel)]="valor" type="number" pattern="^[0-9]+$" required #valorInput="ngModel">
-  <mat-error *ngIf="valorInput.invalid && valorInput.touched">
-    Valor inválido
-  </mat-error>
-</mat-form-field>
+                <mat-label>Moeda de origem</mat-label>
+                <mat-select [(value)]="moedaOrigem">
+                  <mat-option *ngFor="let currency of moedas" [value]="currency.code">
+                    {{currency.code}} - {{currency.description}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
 
-<mat-form-field class="w-100">
-  <mat-label>Resultado</mat-label>
-  <input matInput [(ngModel)]="resultado" type="number" disabled>
-</mat-form-field>
+              <mat-form-field class="w-100">
+                <mat-label>Moeda de destino</mat-label>
+                <mat-select [(value)]="moedaDestino">
+                  <mat-option *ngFor="let currency of moedas" [value]="currency.code">
+                    {{currency.code}} - {{currency.description}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
 
-<mat-form-field class="w-100">
-  <mat-label>Taxa de Conversão</mat-label>
-  <input matInput [(ngModel)]="taxa" type="number" disabled>
-</mat-form-field>
+              <mat-form-field class="w-100">
+                <mat-label>Valor</mat-label>
+                <input matInput [(ngModel)]="valor" type="number" pattern="^[0-9]+$" required #valorInput="ngModel">
+                <mat-error *ngIf="valorInput.invalid && valorInput.touched">
+                  Valor inválido
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field class="w-100">
+                <mat-label>Resultado</mat-label>
+                <input matInput [(ngModel)]="resultado" type="number" disabled>
+              </mat-form-field>
+
+              <mat-form-field class="w-100">
+                <mat-label>Taxa de Conversão</mat-label>
+                <input matInput [(ngModel)]="taxa" type="number" disabled>
+              </mat-form-field>
+
+              <button mat-raised-button color="primary" class="w-100 btn btn-success">
+                <i class="bi bi-arrow-repeat" style="font-size: 15px; font-style: normal;"> Converter</i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!--<div class="container">
   <div class="child">
