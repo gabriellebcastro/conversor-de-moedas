@@ -19,14 +19,16 @@ import { FormsModule } from '@angular/forms';
 import { ConversorComponent } from './conversor/conversor.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon'
+import { HistoricoComponent } from './historico/historico.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     MenuComponent,
       HomepageComponent,
       ListaComponent,
-      ConversorComponent
+      ConversorComponent,
+      HistoricoComponent
    ],
   imports: [
     BrowserModule,

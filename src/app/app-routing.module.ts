@@ -1,3 +1,4 @@
+import { HistoricoComponent } from './historico/historico.component';
 import { ConversorComponent } from './conversor/conversor.component';
 import { ListaComponent } from './lista/lista.component';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -8,7 +9,8 @@ export const routes: Routes = [
   {path: '', redirectTo: 'homepage', pathMatch: 'full'},
   {path: 'homepage', component: HomepageComponent},
   {path: 'lista', component: ListaComponent},
-  {path: 'conversor', component: ConversorComponent}
+  {path: 'conversor', component: ConversorComponent},
+  {path: 'historico', component: HistoricoComponent}
 ];
 
 @NgModule({
