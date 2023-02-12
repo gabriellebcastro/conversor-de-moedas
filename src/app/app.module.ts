@@ -15,6 +15,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatDialogModule} from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { ConversorComponent } from './conversor/conversor.component';
 import { MatInputModule } from '@angular/material/input';
@@ -22,7 +23,7 @@ import { MatIconModule } from '@angular/material/icon'
 import { HistoricoComponent } from './historico/historico.component';
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     MenuComponent,
       HomepageComponent,
@@ -44,6 +45,7 @@ import { HistoricoComponent } from './historico/historico.component';
     MatInputModule,
     MatIconModule,
     MatSelectModule,
+    MatDialogModule,
     FormsModule
   ],
   providers: [],

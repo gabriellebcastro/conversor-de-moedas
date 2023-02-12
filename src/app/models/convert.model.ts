@@ -1,12 +1,9 @@
 export interface Convert {
-
+  data: Date;
+  valor: number;
+  moedaOrigem: string;
+  resultado: number;
+  moedaDestino: string;
+  taxa: number;
+  valorDolar?: number;
 }
-
-export interface ConvertConstructor{
-  new (moedaDe?: string,
-    moedaPara?: string,
-    valor?: number): Convert;
-  clone(): Convert;
-}
-
-export var Convert: ConvertConstructor;

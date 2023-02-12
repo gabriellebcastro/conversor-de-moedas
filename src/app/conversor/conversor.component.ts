@@ -1,3 +1,4 @@
+import { Convert } from './../models/convert.model';
 import { Component, OnInit, ViewChild, Injectable} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { CurrencyListService } from './../services/currency-list.service';
@@ -15,9 +16,12 @@ export class ConversorComponent implements OnInit{
   moedaOrigem!: string;
   moedaDestino!: string;
   valor!: number;
+  valorDolar!: number;
   resultado!: any;
   taxa: any;
   form: FormGroup;
+  data!: Date;
+  conversao!: Convert[];
 
   constructor(private currencyList: CurrencyListService) {
     this.form = new FormGroup({
@@ -28,6 +32,7 @@ export class ConversorComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    this.getItem()
     this.currencyList.list().subscribe((data) => {
       var resultado = Object.keys(data.symbols).map(function(moeda) {
         let symbols = data.symbols[moeda];
@@ -37,13 +42,34 @@ export class ConversorComponent implements OnInit{
     });
   }
 
- convert() {
+  saveConvert(){
+    var conversao = {
+      data: this.data,
+      valor: this.valor,
+      moedaOrigem: this.moedaOrigem,
+      resultado: this.resultado,
+      moedaDestino: this.moedaDestino,
+      taxa: this.taxa,
+      valorDolar: this.valorDolar
+    };
+
+    this.getItem();
+    this.conversao.push(conversao);
+    localStorage.setItem('conversao', JSON.stringify(this.conversao));
+  }
+
+  getItem() {
+    this.conversao = JSON.parse(localStorage.getItem('conversao')!) || [];
+  }
+
+  convert() {
     this.currencyList.convert(this.moedaOrigem, this.moedaDestino, this.valor)
       .subscribe((data:any) => {
         this.resultado = data['result'];
         console.log(this.resultado);
         this.taxa = Object.values(data['info']);
         console.log(this.taxa);
+        this.saveConvert();
       });
   }
 }
