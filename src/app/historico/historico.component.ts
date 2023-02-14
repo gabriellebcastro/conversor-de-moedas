@@ -1,6 +1,5 @@
+import { DialogComponent } from './../dialog/dialog.component';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
@@ -23,8 +22,10 @@ export class HistoricoComponent implements OnInit {
     'moedaOrigem',
     'resultado',
     'moedaDestino',
-    'taxa'
+    'taxa',
+    'deletar'
   ];
+
   dataSource = new MatTableDataSource<Convert>();
 
   @ViewChild(MatSort)
@@ -34,6 +35,20 @@ export class HistoricoComponent implements OnInit {
     const conversionsString = localStorage.getItem('conversao');
     this.dataSource.data = conversionsString ? JSON.parse(conversionsString) : [];
     this.dataSource.sort = this.sort;
+  }
+
+  deletar(conversao: Convert) {
+    const dialogRef = this.dialog.open(DialogComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        const index = this.dataSource.data.indexOf(conversao);
+        this.dataSource.data.splice(index, 1);
+        localStorage.setItem('conversao', JSON.stringify(this.dataSource.data));
+        this.dataSource.data = JSON.parse(localStorage.getItem('conversao')!) || [];
+        location.reload();
+      }
+    });
   }
 
 }

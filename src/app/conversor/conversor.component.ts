@@ -65,6 +65,7 @@ export class ConversorComponent implements OnInit{
   convert() {
     this.currencyList.convert(this.moedaOrigem, this.moedaDestino, this.valor)
       .subscribe((data:any) => {
+        this.data = new Date();
         this.resultado = data['result'];
         console.log(this.resultado);
         this.taxa = Object.values(data['info']);
