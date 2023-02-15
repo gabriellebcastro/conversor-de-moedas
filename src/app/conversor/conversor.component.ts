@@ -21,6 +21,7 @@ export class ConversorComponent implements OnInit{
   taxa: any;
   form: FormGroup;
   data!: Date;
+  hora!: string;
   conversao!: Convert[];
 
   constructor(private currencyList: CurrencyListService) {
@@ -58,6 +59,14 @@ export class ConversorComponent implements OnInit{
     localStorage.setItem('conversao', JSON.stringify(this.conversao));
   }
 
+  checkConvert(){
+    this.currencyList.convert(this.moedaDestino, 'USD', this.resultado)
+    .subscribe((data:any) => {
+      this.valorDolar = data['result'];
+      this.saveConvert();
+    });
+  }
+
   getItem() {
     this.conversao = JSON.parse(localStorage.getItem('conversao')!) || [];
   }
@@ -70,7 +79,7 @@ export class ConversorComponent implements OnInit{
         console.log(this.resultado);
         this.taxa = Object.values(data['info']);
         console.log(this.taxa);
-        this.saveConvert();
+        this.checkConvert();
       });
   }
 }
