@@ -1,6 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ListaComponent } from './lista.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('ListaComponent', () => {
   let component: ListaComponent;
@@ -8,9 +15,18 @@ describe('ListaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListaComponent ]
-    })
-    .compileComponents();
+      declarations: [ListaComponent],
+      imports: [
+        HttpClientModule,
+        MatCardModule,
+        MatToolbarModule,
+        MatFormFieldModule,
+        MatPaginatorModule,
+        MatTableModule,
+        MatInputModule,
+        BrowserAnimationsModule
+      ],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ListaComponent);
     component = fixture.componentInstance;

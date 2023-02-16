@@ -9,7 +9,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { ListaComponent } from './lista/lista.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
-import { MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
@@ -19,7 +19,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { ConversorComponent } from './conversor/conversor.component';
 import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon';
 import { HistoricoComponent } from './historico/historico.component';
 import { DialogComponent } from './dialog/dialog.component';
 
@@ -27,12 +27,12 @@ import { DialogComponent } from './dialog/dialog.component';
   declarations: [
     AppComponent,
     MenuComponent,
-      HomepageComponent,
-      ListaComponent,
-      ConversorComponent,
-      HistoricoComponent,
-      DialogComponent
-   ],
+    HomepageComponent,
+    ListaComponent,
+    ConversorComponent,
+    HistoricoComponent,
+    DialogComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -48,9 +48,9 @@ import { DialogComponent } from './dialog/dialog.component';
     MatIconModule,
     MatSelectModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
