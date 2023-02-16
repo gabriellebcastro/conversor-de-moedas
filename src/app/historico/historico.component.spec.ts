@@ -12,6 +12,8 @@ import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
+import { Convert } from '../models/convert.model';
+import { of } from 'rxjs';
 
 describe('HistoricoComponent', () => {
   let component: HistoricoComponent;
@@ -44,5 +46,51 @@ describe('HistoricoComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should delete a conversion correctly', () => {
+    //Cria uma conversão falsa para ser deletada
+    const conversao: Convert = {
+      data: new Date(),
+      valor: 100,
+      moedaOrigem: 'USD',
+      resultado: 500,
+      moedaDestino: 'BRL',
+      taxa: 5,
+    };
+
+    //Define o valor da variável "dataSource"
+    component.dataSource.data = [conversao];
+
+    //Simula o clique no botão de excluir a conversão
+    const matDialogRef = jasmine.createSpyObj('MatDialogRef', [
+      'afterClosed',
+      'close',
+    ]);
+    matDialogRef.afterClosed.and.returnValue(of(true));
+    spyOn(component.dialog, 'open').and.returnValue(matDialogRef);
+    spyOn(component, 'deletar').and.callThrough();
+    fixture.detectChanges();
+
+    setTimeout(() => {
+      const button = fixture.nativeElement.querySelector('#delete-button');
+      if (button) {
+        button.click();
+
+        //Verifica se a conversão foi removida da lista
+        expect(component.dataSource.data).not.toContain(conversao);
+
+        //Verifica se a função "localStorage.setItem()" foi chamada com os parâmetros corretos
+        expect(localStorage.setItem).toHaveBeenCalledWith(
+          'conversao',
+          JSON.stringify([])
+        );
+
+        //Verifica se a função "location.reload()" foi chamada
+        expect(location.reload).toHaveBeenCalled();
+      } else {
+        fail('Botão de exclusão não encontrado');
+      }
+    }, 1000);
   });
 });
