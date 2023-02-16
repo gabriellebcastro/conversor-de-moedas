@@ -24,7 +24,7 @@ describe('ListaComponent', () => {
         MatPaginatorModule,
         MatTableModule,
         MatInputModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
       ],
     }).compileComponents();
 
@@ -35,5 +35,23 @@ describe('ListaComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should filter data correctly', () => {
+    const testData = [
+      { code: 'USD', description: 'US Dollar' },
+      { code: 'EUR', description: 'Euro' },
+      { code: 'JPY', description: 'Japanese Yen' },
+    ];
+
+    // Set test data as the data source
+    component.moedas.data = testData;
+
+    // Filter data with "USD"
+    component.filterData({ target: { value: 'USD' } });
+
+    // Verify that the filtered data only contains the "USD" row
+    expect(component.moedas.filteredData.length).toEqual(1);
+    expect(component.moedas.filteredData[0].code).toEqual('USD');
   });
 });
